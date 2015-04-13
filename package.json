@@ -1,6 +1,6 @@
 {
   "name": "jstransformer-jscss",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "jscss support for JS Transformers.",
   "scripts": {
     "lint": "jshint index.js && jscs index.js --reporter inline",
@@ -32,7 +32,7 @@
     "url": "https://github.com/jstransformers/jstransformer-jscss/blob/master/LICENSE.md"
   },
   "dependencies": {
-    "jscss": "^0.2.1"
+    "jscss": "~0.2.1"
   },
   "devDependencies": {
     "assertit": "^0.1.0",
