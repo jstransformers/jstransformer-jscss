@@ -28,7 +28,8 @@ console.log(actual);
 - [jstransformer](https://github.com/jstransformers/jstransformer): Normalize the API of any jstransformer
 - [jstransformer-toml](https://github.com/jstransformers/jstransformer-toml): TOML (minimal configuration file format) support for JS Transformers
 - [jstransformer-absurd](https://github.com/jstransformers/jstransformer-absurd): AbsurdJS support for JS Transformers.
-- [jstransformer-lodash](https://github.com/jstransformers/jstransformer-lodash): Lodash support for JS Transformers
+- [jstransformer-postcss](https://github.com/jstransformers/jstransformer-postcss): PostCSS support for JS Transformers. CSS to CSS transformation.
+- [jstransformer-myth](https://github.com/jstransformers/jstransformer-myth): Myth support for JS Transformers
 - [generator-jstransformer](https://github.com/jstransformers/generator-jstransformer): Yeoman generator form jstransformers
 - [assert-kindof](https://github.com/tunnckoCore/assert-kindof): Check native type of the given value and throw TypeError if not okey. Expressive, elegant, behavior-driven API, good descriptive default error messages, simple and clean syntax.
 - [assertit](https://github.com/tunnckoCore/assertit): Thin sugar layer on top of `testit` framework, `is-kindof` and `assert`.
