@@ -1,10 +1,3 @@
-/**
- * jstransformer-jscss <https://github.com/jstransformers/jstransformer-jscss>
- *
- * Copyright (c) 2015 Charlike Mike Reagent, contributors.
- * Released under the MIT license.
- */
-
 'use strict';
 
 var convert = require('jscss/lib/convert');
@@ -15,13 +8,7 @@ exports.name = 'jscss';
 exports.inputFormats = ['jscss', 'css', 'js'];
 exports.outputFormat = 'css';
 
-exports.render = function _render(str, options) {
-  return jscss(str, options);
-};
-
-// just workaround, PRs sent
-process.argv[2] = true;
-function jscss(jscss, options) {
+exports.render = function _render(jscss, options) {
   options = options || {};
   var converted = convert(jscss);
 
@@ -34,4 +21,4 @@ function jscss(jscss, options) {
   }
 
   return compact(converted);
-}
+};
