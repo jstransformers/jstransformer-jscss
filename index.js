@@ -5,7 +5,6 @@ var pretty = require('jscss/lib/compile').pretty;
 var compact = require('jscss/lib/compile').compact;
 
 exports.name = 'jscss';
-exports.inputFormats = ['jscss', 'css', 'js'];
 exports.outputFormat = 'css';
 
 exports.render = function _render(jscss, options) {
