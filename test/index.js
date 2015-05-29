@@ -1,43 +1,74 @@
-/**
- * jstransformer-jscss <https://github.com/jstransformers/jstransformer-jscss>
- *
- * Copyright (c) 2015 Charlike Mike Reagent, contributors.
- * Released under the MIT license.
- */
-
 'use strict';
 
+var assert = require('assert');
 var fs = require('fs');
-var test = require('assertit');
-var transformer = require('jstransformer');
-var transform = transformer(require('../index'));
+var join = require('path').join;
+var test = require('testit');
 
-test('should render jscss template from a string', function(done) {
-  var fixture = 'var white = "#fff";\n.content {\n  color: |white|;\n}';
-  var actual = transform.render(fixture).body;
-  var expected = '.content { color: #fff; }';
+var transform = require('../');
 
-  test.equal(actual, expected);
-  done();
-});
+var inputFile = join(__dirname, 'input.txt');
+var input = fs.readFileSync(inputFile).toString();
+var options = require('./options');
+var locals = require('./locals');
+var expected = fs.readFileSync(join(__dirname, 'expected.txt')).toString().trim();
 
-test('should render jscss from a file', function(done) {
-  var fixture = './test/fixture.css';
-  var actual = transform.renderFile(fixture).body;
-  var expected = fs.readFileSync('./test/expected.min.css', 'utf8');
+function assertEqual(output, expected) {
+  console.log('   Output:\t'   + JSON.stringify(output));
+  console.log('   Expected:\t' + JSON.stringify(expected));
+  assert.equal(output, expected);
+}
 
-  test.equal(actual, expected);
-  done();
-});
-
-test('should render jscss from a file with pretty:true, async/promise', function(done) {
-  var fixture = './test/fixture.css';
-  var promise = transform.renderFileAsync(fixture, {pretty: true});
-  var expected = fs.readFileSync('./test/expected.css', 'utf8');
-
-  promise.then(function(actual) {
-    actual = actual.body;
-    test.equal(actual, expected);
-    done();
+if (transform.render) {
+  test(transform.name + '.render()', function () {
+    var output = transform.render(input, options, locals);
+    assertEqual(output.trim(), expected);
   });
-});
+}
+
+if (transform.compile) {
+  test(transform.name + '.compile()', function () {
+    var output = transform.compile(input, options)(locals);
+    assertEqual(output.trim(), expected);
+  });
+}
+
+if (transform.compileFile) {
+  test(transform.name + '.compileFile()', function () {
+    var output = transform.compileFile(inputFile, options)(locals);
+    assertEqual(output, expected);
+  });
+}
+
+if (transform.renderAsync) {
+  test(transform.name + '.renderAsync()', function (done) {
+    transform.renderAsync(input, options, locals).then(function (output) {
+      assertEqual(output.trim(), expected);
+      done();
+    }, function (err) {
+      done(err);
+    }).done();
+  });
+}
+
+if (transform.renderFileAsync) {
+  test(transform.name + '.renderFileAsync()', function (done) {
+    transform.renderFileAsync(inputFile, options, locals).then(function (output) {
+      assertEqual(output.trim(), expected);
+      done();
+    }, function (err) {
+      done(err);
+    }).done();
+  });
+}
+
+if (transform.compileFileAsync) {
+  test(transform.name + '.compileFileAsync()', function (done) {
+    transform.compileFileAsync(inputFile, options).then(function (template) {
+      assertEqual(template(locals), expected);
+      done();
+    }, function (err) {
+      done(err);
+    }).done();
+  });
+}

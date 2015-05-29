@@ -1,42 +1,32 @@
 {
   "name": "jstransformer-jscss",
-  "version": "0.1.0",
-  "description": "jscss support for JS Transformers.",
+  "version": "0.2.0",
+  "description": "jscss support for JSTransformers.",
+  "keywords": [
+    "jstransformer"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "jscss": "git://github.com/RobLoach/jscss.git#captainpicard"
+  },
+  "devDependencies": {
+    "istanbul": "^0.3.14",
+    "testit": "^2.0.2"
+  },
   "scripts": {
-    "lint": "jshint index.js && jscs index.js --reporter inline",
     "test": "node test",
-    "test-cov": "istanbul cover test",
-    "test-travis": "istanbul cover test --report lcovonly"
+    "coverage": "istanbul cover test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jstransformers/jstransformer-jscss.git"
   },
   "author": {
     "name": "Charlike Mike Reagent",
     "email": "mameto_100@mail.bg",
     "url": "https://github.com/tunnckoCore"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/jstransformers/jstransformer-jscss.git"
-  },
-  "keywords": [
-    "css",
-    "engine",
-    "javascript",
-    "js",
-    "jscss",
-    "jstranformer",
-    "template",
-    "transform"
-  ],
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/jstransformers/jstransformer-jscss/blob/master/LICENSE.md"
-  },
-  "dependencies": {
-    "jscss": "~0.2.1"
-  },
-  "devDependencies": {
-    "assertit": "^0.1.0",
-    "istanbul-harmony": "~0.3.1",
-    "jstransformer": "~0.0.0"
-  }
+  "license": "MIT"
 }
