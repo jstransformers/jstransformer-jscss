@@ -1,0 +1,33 @@
+var white = "#fff";
+var j = 2;
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  background-color: rgba(3, |j * 21|, 5, 0.6);
+}
+
+html[lang*="en"] {
+  color: rgb(238 , 23, 12);
+  font-family: Open Sans|;
+}
+
+for (var i = 0; i < 5; i++) {
+  div .hello:nth-child(|i|) {
+    color: rgb(|i * 10|, 20, |i * 20|);
+  }
+}
+
+p > li {
+  background-color: |white|;
+}
+
+while (j < 5) {
+  p > li.number-|j| {
+    width: |j * 10|;
+  }
+  j++;
+}

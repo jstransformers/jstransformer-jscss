@@ -1,71 +1,35 @@
-## [![npm][npmjs-img]][npmjs-url] [![mit license][license-img]][license-url] [![build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url] [![deps status][daviddm-img]][daviddm-url]
+# jstransformer-jscss
 
-> [jscss](https://github.com/AlexanderSelzer/jscss) support for JS Transformers.
+[JSCSS](https://github.com/AlexanderSelzer/jscss) support for [JSTransformers](http://github.com/jstransformers).
 
-## Install
+[![Build Status](https://img.shields.io/travis/jstransformers/jstransformer-jscss/master.svg)](https://travis-ci.org/jstransformers/jstransformer-jscss)
+[![Coverage Status](https://img.shields.io/coveralls/jstransformers/jstransformer-jscss/master.svg)](https://coveralls.io/r/jstransformers/jstransformer-jscss?branch=master)
+[![Dependency Status](https://img.shields.io/david/jstransformers/jstransformer-jscss/master.svg)](http://david-dm.org/jstransformers/jstransformer-jscss)
+[![NPM version](https://img.shields.io/npm/v/jstransformer-jscss.svg)](https://www.npmjs.org/package/jstransformer-jscss)
+
+
+## Installation
+
 ```
-npm i --save jstransformer-jscss
-npm test
+npm install jstransformer-jscss
 ```
 
-
-## Usage
-> For more use-cases see the [tests](./test/index.js)
+## API
+> See full example in [test fixture](./test/input.css) or visit [JSCSS's readme](https://github.com/AlexanderSelzer/jscss)
 
 ```js
 var jscss = require('jstransformer')(require('jstransformer-jscss'));
 
-var fixture = 'var white = "#fff";\n.content {\n  color: |white|;\n}';
-var actual = jscss.render(fixture).body;
-var expected = '.content { color: #fff; }';
-
-console.log(actual);
-//=> '.content { color: #fff; }'
+var input = 'var color = "#d02783"; div { background: |color|; }';
+jscss.render(input).body
+//=> 'div { background: #d02783; }'
 ```
 
-
 ## Related
-- [jstransformer](https://github.com/jstransformers/jstransformer): Normalize the API of any jstransformer
-- [jstransformer-toml](https://github.com/jstransformers/jstransformer-toml): TOML (minimal configuration file format) support for JS Transformers
-- [jstransformer-absurd](https://github.com/jstransformers/jstransformer-absurd): AbsurdJS support for JS Transformers.
-- [jstransformer-postcss](https://github.com/jstransformers/jstransformer-postcss): PostCSS support for JS Transformers. CSS to CSS transformation.
-- [jstransformer-myth](https://github.com/jstransformers/jstransformer-myth): Myth support for JS Transformers
-- [generator-jstransformer](https://github.com/jstransformers/generator-jstransformer): Yeoman generator form jstransformers
-- [assert-kindof](https://github.com/tunnckoCore/assert-kindof): Check native type of the given value and throw TypeError if not okey. Expressive, elegant, behavior-driven API, good descriptive default error messages, simple and clean syntax.
-- [assertit](https://github.com/tunnckoCore/assertit): Thin sugar layer on top of `testit` framework, `is-kindof` and `assert`.
-- [is-kindof](https://github.com/tunnckoCore/is-kindof): Thin wrapper around `kind-of` and in bonus functional api.
-- [is-missing](https://github.com/tunnckoCore/is-missing): Check that given `name` or `user/repo` exists in npm registry or in github as organization/user repository.
+- [dush](https://github.com/tunnckocore/dush): Minimalist 1.5kb event delegation for the browser (IE8+) and nodejs.
+- [jscss-lite](https://github.com/tunnckocore/jscss-lite): Write Javascript-ish things in your CSS. Or call it `Embedded CSS` - write CSS in your Javascript!
+- [octet](https://github.com/tunnckocore/octet): 1kb template engine for the browser and nodejs. Support helpers, partials and more.
 
-## License [![MIT license][license-img]][license-url]
-Copyright (c) 2015 [JSTransformers][jstransformers-url], [Charlike Mike Reagent][contrib-more], [contributors][contrib-graf].  
-Released under the [`MIT`][license-url] license.
+## License
 
-
-[jstransformers-url]: https://github.com/jstransformers
-
-[npmjs-url]: http://npm.im/jstransformer-jscss
-[npmjs-img]: https://img.shields.io/npm/v/jstransformer-jscss.svg?style=flat&label=jstransformer-jscss
-
-[coveralls-url]: https://coveralls.io/r/jstransformers/jstransformer-jscss?branch=master
-[coveralls-img]: https://img.shields.io/coveralls/jstransformers/jstransformer-jscss.svg?style=flat
-
-[license-url]: https://github.com/jstransformers/jstransformer-jscss/blob/master/LICENSE.md
-[license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
-
-[travis-url]: https://travis-ci.org/jstransformers/jstransformer-jscss
-[travis-img]: https://img.shields.io/travis/jstransformers/jstransformer-jscss.svg?style=flat
-
-[daviddm-url]: https://david-dm.org/jstransformers/jstransformer-jscss
-[daviddm-img]: https://img.shields.io/david/jstransformers/jstransformer-jscss.svg?style=flat
-
-[author-gratipay]: https://gratipay.com/tunnckoCore
-[author-twitter]: https://twitter.com/tunnckoCore
-[author-github]: https://github.com/tunnckoCore
-[author-npmjs]: https://npmjs.org/~tunnckocore
-
-[contrib-more]: http://j.mp/1stW47C
-[contrib-graf]: https://github.com/jstransformers/jstransformer-jscss/graphs/contributors
-
-***
-
-_Proudly generated by [docks(1)](https://github.com/tunnckoCore), April 13, 2015_
+MIT
