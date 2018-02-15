@@ -15,9 +15,9 @@
 ## API
 
 ```js
-var jscss = require('jstransformer')(require('jstransformer-jscss'));
+var jscss = require('jstransformer')(require('jstransformer-jscss'))
 
-var input = 'var color = "#d02783"; div { background: |color|; }';
+var input = 'var color = "#d02783"; div { background: |color|; }'
 jscss.render(input).body
 //=> 'div { background: #d02783; }'
 ```
