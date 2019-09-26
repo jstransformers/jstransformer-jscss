@@ -1,8 +1,7 @@
 'use strict'
 
 const convert = require('jscss/lib/convert')
-const pretty = require('jscss/lib/compile').pretty
-const compact = require('jscss/lib/compile').compact
+const {pretty, compact} = require('jscss/lib/compile')
 
 exports.name = 'jscss'
 exports.inputFormats = ['jscss', 'css', 'js']
